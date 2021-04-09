@@ -18,6 +18,7 @@ fun main() {
 
 /**
  * 寻找最小, 返回下标和对应的值
+ * 时间复杂度 O(1)
  */
 private fun findMin(list: List<Int>): Pair<Int, Int> {
 

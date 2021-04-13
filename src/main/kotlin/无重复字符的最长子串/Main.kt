@@ -32,17 +32,15 @@ private fun find(str: String): String {
     var resultStartIndex = 0
     var resultEndIndex = 0
     var startIndex = 0
-    var endIndex = -1
     for(index in str.indices) {
         // char 对应的 acill 码
         val charIndex = str[index].toInt()
-        endIndex = index
         if(arr[charIndex] != -1) {
             startIndex = max(startIndex, arr[charIndex] + 1)
         }
-        if((endIndex - startIndex) > (resultEndIndex - resultStartIndex)) {
+        if((index - startIndex) > (resultEndIndex - resultStartIndex)) {
             resultStartIndex = startIndex
-            resultEndIndex = endIndex
+            resultEndIndex = index
         }
         arr[charIndex] = index
     }

@@ -1,10 +1,8 @@
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-
 plugins {
-    kotlin("jvm") version "1.4.32"
+    kotlin("jvm") version "1.9.23"
 }
 
-group = "me.xiaojinzi"
+group = "com.xiaojinzi"
 version = "1.0-SNAPSHOT"
 
 repositories {
@@ -12,9 +10,13 @@ repositories {
 }
 
 dependencies {
+    testImplementation(kotlin("test"))
     implementation("junit:junit:4.13.2")
 }
 
-tasks.withType<KotlinCompile>() {
-    kotlinOptions.jvmTarget = "1.8"
+tasks.test {
+    useJUnitPlatform()
+}
+kotlin {
+    jvmToolchain(17)
 }

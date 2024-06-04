@@ -31,6 +31,7 @@ fun main() {
     println("快速排序前：${arr1.joinToString()}")
 
     // 快速排序 从小到大
+    // quickSort(arr = arr1, left = 0, right = arr1.lastIndex)
     quickSort(arr = arr1, left = 0, right = arr1.lastIndex)
 
     println("快速排序后：${arr1.joinToString()}")

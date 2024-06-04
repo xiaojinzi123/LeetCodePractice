@@ -117,7 +117,12 @@ fun main() {
         isBigHeap = true,
     )
 
-    repeat(times = 30) {
+    repeat(times = 5) {
+        heap1.add(value = 100)
+        heap2.add(value = 100)
+    }
+
+    repeat(times = 20) {
         heap1.add(
             value = Random.nextInt(
                 from = 0, until = 1000,

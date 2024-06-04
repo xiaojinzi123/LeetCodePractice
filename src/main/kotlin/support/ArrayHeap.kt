@@ -21,8 +21,8 @@ class ArrayHeap<T : Comparable<T>>(
         mDataList[index2] = temp
     }
 
-    private fun shiftUp(index: Int) {
-        var tempIndex = index
+    private fun shiftUp() {
+        var tempIndex = mDataList.lastIndex
         while (tempIndex > 0) {
             val parentIndex = (tempIndex - 1) / 2
             val parentValue = mDataList[parentIndex]
@@ -87,7 +87,7 @@ class ArrayHeap<T : Comparable<T>>(
         mDataList.add(
             element = value,
         )
-        shiftUp(index = mDataList.lastIndex)
+        shiftUp()
     }
 
     fun pop(): T? {

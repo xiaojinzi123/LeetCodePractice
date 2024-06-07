@@ -6,6 +6,9 @@ private fun isMatch(s: String, p: String): Boolean {
     if (s.isEmpty() && p.isEmpty()) {
         return true
     }
+    if (p.all { it == '*' }) {
+        return true
+    }
     if (s.isEmpty() || p.isEmpty()) {
         return false
     }
@@ -45,6 +48,7 @@ private fun isMatch(s: String, p: String): Boolean {
 fun main() {
 
     val questionAndAnswerList = listOf(
+        ("" to "*") to true,
         ("aa" to "a") to false,
         ("aa" to "a*") to true,
         ("ab" to ".*") to true,

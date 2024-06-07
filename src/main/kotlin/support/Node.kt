@@ -29,6 +29,10 @@ class Node<T>(
         }
     }
 
+    fun toListForNext(): List<Node<T>> {
+        return iteratorForNext().asSequence().toList()
+    }
+
     fun sizeForNext(): Int {
         var count = 0
         var tempNode = this

@@ -38,11 +38,13 @@ fun main() {
     val num1 = 123321
     val num2 = 12321
     val num3 = 1234521
+    val num4 = -12321
 
     val questionAndAnswers = listOf(
         num1 to true,
         num2 to true,
         num3 to false,
+        num4 to false,
     )
 
     val b1 = questionAndAnswers.all { item ->

@@ -21,11 +21,9 @@ private fun lengthOfLongestSubstring(str: String): String {
         // char 对应的 acill 码
         val charIndex = str[index].code
         // 这里是最关键的一部分.
-        // 如果当前字符在之前出现过, 那么就需要重新计算 startIndex
-        // 第一种情况就是, 这个字符对应的 index 位置在 startIndex 之前, 那么 startIndex 不需要变化, 因为这个不算重复
-        // 第二种情况就是, 这个字符对应的 index 位置在 startIndex 之后, 那么 startIndex 就需要变成这个字符对应的 index 位置 + 1
-        if (arr[charIndex] != -1) {
-            startIndex = max(startIndex, arr[charIndex] + 1)
+        // 当前字符的 index 需要在 startIndex 之后, 说明从 startIndex 开始有字符重复了
+        if (arr[charIndex] >= startIndex) {
+            startIndex = arr[charIndex] + 1
         }
         if ((index - startIndex) > (resultEndIndex - resultStartIndex)) {
             resultStartIndex = startIndex

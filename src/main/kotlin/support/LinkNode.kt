@@ -2,26 +2,26 @@ package support
 
 import java.lang.IllegalArgumentException
 
-class Node<T>(
+class LinkNode<T>(
     val value: T,
-    var preNode: Node<T>? = null,
-    var nextNode: Node<T>? = null
+    var preNode: LinkNode<T>? = null,
+    var nextNode: LinkNode<T>? = null
 ) {
 
-    fun createNext(value: T): Node<T> {
-        return Node<T>(value = value, preNode = this).also {
+    fun createNext(value: T): LinkNode<T> {
+        return LinkNode<T>(value = value, preNode = this).also {
             nextNode = it
         }
     }
 
-    fun iteratorForNext(): Iterator<Node<T>> {
-        return object : Iterator<Node<T>> {
-            var tempNode: Node<T>? = this@Node
+    fun iteratorForNext(): Iterator<LinkNode<T>> {
+        return object : Iterator<LinkNode<T>> {
+            var tempNode: LinkNode<T>? = this@LinkNode
             override fun hasNext(): Boolean {
                 return tempNode != null
             }
 
-            override fun next(): Node<T> {
+            override fun next(): LinkNode<T> {
                 val result = tempNode
                 tempNode = tempNode?.nextNode
                 return result!!
@@ -29,7 +29,7 @@ class Node<T>(
         }
     }
 
-    fun toListForNext(): List<Node<T>> {
+    fun toListForNext(): List<LinkNode<T>> {
         return iteratorForNext().asSequence().toList()
     }
 
@@ -45,11 +45,14 @@ class Node<T>(
 
 }
 
-fun <T> List<T>.toLinkedList(): Node<T> {
+/**
+ * 列表转化为链表
+ */
+fun <T> List<T>.toLinkedList(): LinkNode<T> {
     if (this.isEmpty()) {
         throw IllegalArgumentException("集合不能为空")
     }
-    val firstNode = Node(value = this[0])
+    val firstNode = LinkNode(value = this[0])
     var tempNode = firstNode
     for (index in 1 until this.size) {
         tempNode = tempNode.createNext(value = this[index]).also {

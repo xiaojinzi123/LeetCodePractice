@@ -5,8 +5,7 @@ package support
  */
 class TreeNode<T>(
     var value: T,
-    var left: TreeNode<T>? = null,
-    var right: TreeNode<T>? = null,
+    var children: List<TreeNode<T>> = emptyList(),
 ) {
 
     /**
@@ -19,27 +18,29 @@ class TreeNode<T>(
     }
 
     /**
-     * 中序遍历的输出
+     * 后序遍历的输出
      */
-    fun toInOrderList(): List<T> {
+    fun toPostOrderList(): List<T> {
         val list = mutableListOf<T>()
-        inOrderLoop(this, list)
+        postOrderLoop(this, list)
         return list
     }
 
     private fun preOrderLoop(treeNode: TreeNode<T>?, list: MutableList<T>) {
         treeNode?.let {
             list.add(it.value)
-            preOrderLoop(it.left, list)
-            preOrderLoop(it.right, list)
+            treeNode.children.forEach { item ->
+                preOrderLoop(treeNode = item, list = list)
+            }
         }
     }
 
-    private fun inOrderLoop(treeNode: TreeNode<T>?, list: MutableList<T>) {
+    private fun postOrderLoop(treeNode: TreeNode<T>?, list: MutableList<T>) {
         treeNode?.let {
-            inOrderLoop(it.left, list)
+            treeNode.children.forEach { item ->
+                postOrderLoop(treeNode = item, list = list)
+            }
             list.add(it.value)
-            inOrderLoop(it.right, list)
         }
     }
 

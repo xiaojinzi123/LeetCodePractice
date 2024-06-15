@@ -1,7 +1,7 @@
 package 两数相加
 
 import org.junit.Assert
-import support.Node
+import support.LinkNode
 import support.toLinkedList
 
 /**
@@ -31,10 +31,10 @@ fun main() {
 
 }
 
-private fun add(node1: Node<Int>, node2: Node<Int>): Int {
+private fun add(node1: LinkNode<Int>, node2: LinkNode<Int>): Int {
     val resultSb = StringBuffer()
-    var tempNode1: Node<Int>? = node1
-    var tempNode2: Node<Int>? = node2
+    var tempNode1: LinkNode<Int>? = node1
+    var tempNode2: LinkNode<Int>? = node2
     // 是否进位
     var isCarry = false
     while (tempNode1 != null || tempNode2 != null) {

@@ -1,7 +1,7 @@
 package 重建二叉树
 
 import org.junit.Assert
-import support.TreeNode
+import support.BinaryTreeNode
 
 fun main() {
 
@@ -24,9 +24,9 @@ fun main() {
 private fun rebuildTree(
     preOrder: List<Int>, preOrderRange: IntRange = preOrder.indices,
     inOrder: List<Int>, inOrderRange: IntRange = inOrder.indices,
-): TreeNode<Int> {
+): BinaryTreeNode<Int> {
     if (preOrderRange.first == preOrderRange.last) {
-        return TreeNode(value = preOrder[preOrderRange.first])
+        return BinaryTreeNode(value = preOrder[preOrderRange.first])
     }
     // 根节点的值
     val rootValue = preOrder[preOrderRange.first]
@@ -40,7 +40,7 @@ private fun rebuildTree(
     if (rootIndexInInOrderList == -1) {
         throw IllegalArgumentException("rootIndexInInOrderList = -1")
     }
-    val rootNode = TreeNode(value = rootValue)
+    val rootNode = BinaryTreeNode(value = rootValue)
     // 左右子树的个数
     val leftTreeCount = rootIndexInInOrderList - inOrderRange.first
     val rightTreeCount = inOrderRange.last - rootIndexInInOrderList

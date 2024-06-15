@@ -1,7 +1,7 @@
 package 相交链表
 
 import org.junit.Assert
-import support.Node
+import support.LinkNode
 import support.toLinkedList
 import java.util.*
 import kotlin.math.absoluteValue
@@ -35,8 +35,8 @@ fun main() {
  * 分别放入一个栈中
  */
 private fun method1(
-    link1: Node<Int>,
-    link2: Node<Int>,
+    link1: LinkNode<Int>,
+    link2: LinkNode<Int>,
 ): Int? {
     if (link1.nextNode == null || link2.nextNode == null) {
         return null
@@ -68,8 +68,8 @@ private fun method1(
  * 分别放入一个栈中
  */
 private fun method2(
-    link1: Node<Int>,
-    link2: Node<Int>,
+    link1: LinkNode<Int>,
+    link2: LinkNode<Int>,
 ): Int? {
     if (link1.nextNode == null || link2.nextNode == null) {
         return null
@@ -96,8 +96,8 @@ private fun method2(
         link1 to link2
     }
 
-    var tempNode1: Node<Int>? = resultLink1
-    var tempNode2: Node<Int>? = resultLink2
+    var tempNode1: LinkNode<Int>? = resultLink1
+    var tempNode2: LinkNode<Int>? = resultLink2
 
     while (tempNode1 != null && tempNode2 != null) {
         if(tempNode1.value == tempNode2.value) {

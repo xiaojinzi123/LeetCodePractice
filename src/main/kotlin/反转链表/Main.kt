@@ -1,17 +1,17 @@
 package 反转链表
 
 import org.junit.Assert
-import support.Node
+import support.LinkNode
 import support.toLinkedList
 
-private fun <T> reverseList1(head: Node<T>): Node<T> {
+private fun <T> reverseList1(head: LinkNode<T>): LinkNode<T> {
     // 创建反转后的 Head, 首先是为原始的 Head
-    var resultHead = Node(
+    var resultHead = LinkNode(
         value = head.value,
     )
-    var tempNode: Node<T>? = head.nextNode
+    var tempNode: LinkNode<T>? = head.nextNode
     while (tempNode != null) {
-        resultHead = Node(
+        resultHead = LinkNode(
             value = tempNode.value,
             nextNode = resultHead,
         )

@@ -12,6 +12,9 @@ class ArrayHeap<T : Comparable<T>>(
 
     private val mDataList = mutableListOf<T>()
 
+    val size: Int
+        get() = mDataList.size
+
     private fun swap(
         index1: Int,
         index2: Int,
@@ -106,6 +109,25 @@ class ArrayHeap<T : Comparable<T>>(
             }
         }
         return value
+    }
+
+    fun peek(): T? {
+        return mDataList.getOrNull(index = 0)
+    }
+
+    /**
+     * 返回排序号的列表
+     */
+    fun toList(): List<T> {
+        val list = mutableListOf<T>()
+        var temp: T? = null
+        do {
+            temp = pop()
+            if (temp != null) {
+                list.add(temp)
+            }
+        } while (temp != null)
+        return list
     }
 
 }

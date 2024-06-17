@@ -47,12 +47,9 @@ private fun jobScheduling(jobs: Array<Job>): Int {
 
 fun main() {
 
-    val startTime: IntArray
-
-    startTime.toTypedArray()
-
     val jobList1 = arrayOf(
         Job(1, 3, 50),
+        Job(1, 3, 60),
         Job(3, 6, 70),
         Job(2, 4, 10),
         Job(3, 5, 40),
@@ -64,8 +61,9 @@ fun main() {
         Job(3, 10, 100),
         Job(2, 5, 20),
     )
+
     val questionAndAnswerList = listOf(
-        jobList1 to 120,
+        jobList1 to 130,
         jobList2 to 150,
     )
 

@@ -35,6 +35,10 @@ private fun isPalindrome(head: LinkNode<Int>): Boolean {
         }
     }
 
+    if(size == 1) {
+        return true
+    }
+
     // 对部分链表进行反转
     var part2Link = slowNode!!.nextNode!!
     part2Link = reversalLink(head = part2Link)
@@ -64,6 +68,7 @@ fun main() {
     val link2 = listOf(1, 2, 3, 2, 1).toLinkedList()
     val link3 = listOf(1, 2, 3, 3, 2, 1).toLinkedList()
     val link4 = listOf(1, 2, 3, 3, 4, 2, 1).toLinkedList()
+    val link5 = listOf(1).toLinkedList()
 
     Assert.assertTrue(
         listOf(
@@ -71,6 +76,7 @@ fun main() {
             link2 to true,
             link3 to true,
             link4 to false,
+            link5 to true,
         ).all { (question, answer) ->
             isPalindrome(
                 head = question,

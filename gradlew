@@ -60,7 +60,7 @@ die () {
     exit 1
 }
 
-# OS specific support (must be 'true' or 'false').
+# OS specific 算法.support (must be 'true' or 'false').
 cygwin=false
 msys=false
 darwin=false
